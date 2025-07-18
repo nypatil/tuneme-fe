@@ -1,0 +1,27 @@
+<header class="header">
+  <div class="header-left">
+    <img src="assets/logo.png" alt="Logo" class="logo">
+  </div>
+  <nav class="header-nav">
+    <ng-container *ngFor="let item of navItems">
+      <a
+        *ngIf="shouldShowMenuItem(item)"
+        [routerLink]="item.route"
+        routerLinkActive="active-link"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="nav-link"
+      >{{ item.label }}</a>
+    </ng-container>
+  </nav>
+  <div class="header-right">
+    <a routerLink="/home" class="download-btn">Download</a>
+    <div class="user-profile">
+      <span>Language</span>
+      <select class="country-dropdown">
+        <option value="english">English</option>
+        <option value="french">French</option>
+        <option value="german">German</option>
+      </select>
+    </div>
+  </div>
+</header>

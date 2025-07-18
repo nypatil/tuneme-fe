@@ -1,0 +1,50 @@
+<div class="mobile-menu-toggle" (click)="toggleMobileMenu()">
+  <i class="fas fa-bars"></i>
+</div>
+
+<aside class="left-nav-menu" [class.open]="isMobileMenuOpen">
+  <nav>
+    <ul>
+      <ng-container *ngFor="let item of menuItems">
+        <li *ngIf="shouldShowMenuItem(item)">
+          <!-- Parent item with children -->
+          <ng-container *ngIf="item.children; else singleLink">
+            <a class="nav-link parent-link" (click)="toggleSubMenu(item)">
+              <i class="{{ item.icon }}"></i>
+              <span>{{ item.label }}</span>
+              <i class="fas expand-icon" [class.fa-chevron-down]="!isSubMenuExpanded(item)" [class.fa-chevron-up]="isSubMenuExpanded(item)"></i>
+            </a>
+            <ul *ngIf="isSubMenuExpanded(item)" class="sub-menu">
+              <li *ngFor="let child of item.children">
+                <a
+                  *ngIf="shouldShowMenuItem(child)"
+                  [routerLink]="child.route"
+                  routerLinkActive="active-link"
+                  [routerLinkActiveOptions]="{ exact: true }"
+                  (click)="isMobileMenuOpen = false"
+                >
+                  <i class="{{ child.icon }}"></i>
+                  <span>{{ child.label }}</span>
+                </a>
+              </li>
+            </ul>
+          </ng-container>
+
+          <!-- Single link item (no children) -->
+          <ng-template #singleLink>
+            <a
+              [routerLink]="item.route"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+              (click)="isMobileMenuOpen = false"
+              class="nav-link"
+            >
+              <i class="{{ item.icon }}"></i>
+              <span>{{ item.label }}</span>
+            </a>
+          </ng-template>
+        </li>
+      </ng-container>
+    </ul>
+  </nav>
+</aside>

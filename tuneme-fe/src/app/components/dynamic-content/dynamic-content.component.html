@@ -1,0 +1,13 @@
+<div class="dynamic-content-container">
+  <div *ngFor="let item of contentItems" class="content-row">
+    <a [routerLink]="item.link" class="content-link">
+      <div class="content-icon">
+        <img [src]="item.icon" [alt]="item.title + ' icon'">
+      </div>
+      <div class="content-details">
+        <h3 class="content-title">{{ item.title }}</h3>
+        <p class="content-description">{{ item.description }}</p>
+      </div>
+    </a>
+  </div>
+</div>

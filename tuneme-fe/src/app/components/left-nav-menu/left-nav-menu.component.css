@@ -1,0 +1,112 @@
+.left-nav-menu {
+  width: 220px;
+  background-color: #f4f4f4;
+  padding: 20px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 60px); /* Adjust based on header height */
+  position: fixed;
+  top: 60px; /* Position below the header */
+  left: 0;
+  overflow-y: auto;
+  transition: transform 0.3s ease-in-out;
+  z-index: 999; /* Ensure it's above other content */
+}
+
+.left-nav-menu nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-nav-menu nav ul li a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 1.1em;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.left-nav-menu nav ul li a i {
+  margin-right: 10px;
+  font-size: 1.2em;
+}
+
+.left-nav-menu nav ul li a:hover {
+  background-color: #e0e0e0;
+  color: #007bff;
+}
+
+.left-nav-menu nav ul li a.active-link {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+}
+
+.left-nav-menu nav ul li a.active-link i {
+  color: white;
+}
+
+/* Parent link with children */
+.left-nav-menu nav ul li .parent-link {
+  cursor: pointer;
+  justify-content: space-between; /* Push icon to the right */
+}
+
+.left-nav-menu nav ul li .parent-link .expand-icon {
+  margin-left: auto; /* Push to the right */
+  transition: transform 0.2s ease;
+}
+
+/* Sub-menu styles */
+.sub-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background-color: #f0f0f0; /* Slightly different background for sub-menu */
+  border-top: 1px solid #e0e0e0;
+}
+
+.sub-menu li a {
+  padding-left: 40px; /* Indent sub-menu items */
+  font-size: 1em;
+}
+
+.sub-menu li a.active-link {
+  background-color: #0056b3; /* Darker blue for active sub-menu item */
+}
+
+/* Mobile styles */
+.mobile-menu-toggle {
+  display: none; /* Hidden by default on desktop */
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .left-nav-menu {
+    transform: translateX(-100%); /* Hide by default on mobile */
+    width: 250px;
+  }
+
+  .left-nav-menu.open {
+    transform: translateX(0%); /* Show when open */
+  }
+
+  .mobile-menu-toggle {
+    display: block; /* Show toggle button on mobile */
+  }
+
+  .content-area {
+    margin-left: 0; /* No margin on mobile when sidebar is hidden */
+  }
+}
