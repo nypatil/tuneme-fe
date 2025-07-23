@@ -1,1 +1,40 @@
-<p>my-knowledge works!</p>
+<div class="knowledge-container">
+  <div class="tabs">
+    <button 
+      class="tab-button" 
+      [class.active]="activeTab === 'hot_topics'" 
+      (click)="selectTab('hot_topics')">
+      HOT TOPICS
+    </button>
+    <button 
+      class="tab-button" 
+      [class.active]="activeTab === 'menu'" 
+      (click)="selectTab('menu')">
+      MENU
+    </button>
+  </div>
+
+  <div class="content">
+    <div *ngIf="activeTab === 'hot_topics'" class="list-container">
+      <div *ngFor="let item of (hotTopics$ | async)" class="list-item hot-topic-item" (click)="goToDetails(item)">
+        <img [src]="'https://mhsp-dev2.unfpa.org' + item.field_cover_image" alt="" class="item-icon">
+        <div class="item-text">
+          <div class="item-title">{{ item.title }}</div>
+          <div class="item-description">{{ item.field_short_description }}</div>
+        </div>
+        <div class="item-age">15+</div>
+      </div>
+    </div>
+
+    <div *ngIf="activeTab === 'menu'" class="list-container">
+      <div *ngFor="let item of (menuItems$ | async)" class="list-item menu-item">
+        <img [src]="'https://mhsp-dev2.unfpa.org' + item.field_icon_image" alt="" class="item-icon-large">
+        <div class="item-text">
+          <div class="item-title">{{ item.name }}</div>
+          <div class="item-description" [innerHTML]="item.description__value_export"></div>
+        </div>
+        <span class="arrow">></span>
+      </div>
+    </div>
+  </div>
+</div>

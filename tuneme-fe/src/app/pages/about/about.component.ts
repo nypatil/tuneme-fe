@@ -1,12 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AboutService } from '../../services/about.service';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
+export class AboutComponent implements OnInit {
+  aboutContent: any;
 
+  constructor(private aboutService: AboutService) { }
+
+  ngOnInit(): void {
+    this.aboutService.getAboutContent().subscribe(data => {
+      if (data && data.length > 0) {
+        this.aboutContent = data[0];
+      }
+    });
+  }
 }

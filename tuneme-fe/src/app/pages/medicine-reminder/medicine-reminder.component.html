@@ -1,0 +1,77 @@
+<div class="container">
+  <h2>Medicine Reminder</h2>
+  <form [formGroup]="medicineReminderForm" (ngSubmit)="onSubmit()" aria-labelledby="form-title">
+
+    <!-- Medicine Section -->
+    <fieldset formGroupName="medicine" class="form-section">
+      <legend class="section-header">MEDICINE</legend>
+      <div class="form-group">
+        <label for="med-name">Name</label>
+        <input id="med-name" type="text" formControlName="name" class="form-control" aria-describedby="name-helper">
+        <small id="name-helper" class="form-text text-muted">Enter the name of the medicine.</small>
+      </div>
+      <div class="form-group">
+        <label for="med-power">Power/mg</label>
+        <input id="med-power" type="text" formControlName="power" class="form-control" aria-describedby="power-helper">
+        <small id="power-helper" class="form-text text-muted">Specify the strength (e.g., 500mg).</small>
+      </div>
+      <div class="form-group">
+        <label for="med-dose">Dose</label>
+        <input id="med-dose" type="text" formControlName="dose" class="form-control" aria-describedby="dose-helper">
+        <small id="dose-helper" class="form-text text-muted">Specify the dosage (e.g., 1 tablet).</small>
+      </div>
+    </fieldset>
+
+    <!-- Reminder Section -->
+    <fieldset formGroupName="reminder" class="form-section">
+      <legend class="section-header">REMINDER</legend>
+      <div class="form-group">
+        <label for="rem-schedule">Schedule</label>
+        <select id="rem-schedule" formControlName="schedule" class="form-control">
+          <option *ngFor="let option of scheduleOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rem-start-date">Start Date</label>
+          <input id="rem-start-date" type="date" formControlName="startDate" class="form-control" placeholder="Select Date">
+        </div>
+        <div class="form-group">
+          <label for="rem-end-date">End Date</label>
+          <input id="rem-end-date" type="date" formControlName="endDate" class="form-control" placeholder="Select Date">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="rem-repeat">Repeat no. of times (per day)</label>
+        <select id="rem-repeat" formControlName="repeatCount" class="form-control">
+          <option *ngFor="let option of repeatOptions" [value]="option">{{ option }} Time{{ option > 1 ? 's' : '' }}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="rem-alarm-time">Set alarm time</label>
+        <div class="alarm-time-group">
+          <span>Alarm 1</span>
+          <input id="rem-alarm-time" type="time" formControlName="alarmTime" class="form-control" placeholder="Select Time">
+        </div>
+      </div>
+      <div class="form-group checkbox-group">
+        <input id="rem-with-food" type="checkbox" formControlName="withFood">
+        <label for="rem-with-food">With food</label>
+      </div>
+      <div class="form-group">
+        <label for="rem-instructions">Other instructions</label>
+        <textarea id="rem-instructions" formControlName="instructions" class="form-control" placeholder="Your instructions" aria-describedby="instructions-helper"></textarea>
+        <small id="instructions-helper" class="form-text text-muted">Add any special instructions here.</small>
+      </div>
+    </fieldset>
+
+    <!-- Action Button -->
+    <button type="submit" [disabled]="medicineReminderForm.invalid" class="submit-btn" title="Save the reminder and add another one">Save & Add More</button>
+  </form>
+
+  <!-- Display JSON Result -->
+  <div *ngIf="submittedJson" class="result-container" aria-live="polite">
+    <h3>Submitted Data:</h3>
+    <pre>{{ submittedJson }}</pre>
+  </div>
+</div>

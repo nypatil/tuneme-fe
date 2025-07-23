@@ -1,0 +1,56 @@
+<div class="container">
+  <h2>Appointment Reminder</h2>
+  <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()" aria-labelledby="form-title">
+    <!-- Appointment Name -->
+    <div class="form-group">
+      <label for="appointmentName">Appointment Name</label>
+      <input type="text" id="appointmentName" formControlName="appointmentName" class="form-control" aria-describedby="name-helper">
+      <small id="name-helper" class="form-text text-muted">Please enter the purpose of the appointment (e.g., "Dentist Check-up").</small>
+      <div *ngIf="appointmentForm.get('appointmentName')?.invalid && (appointmentForm.get('appointmentName')?.dirty || appointmentForm.get('appointmentName')?.touched)" class="alert alert-danger">
+        Appointment Name is required and must be at least 3 characters long.
+      </div>
+    </div>
+
+    <!-- Appointment Center -->
+    <div class="form-group">
+      <label for="appointmentCenter">Appointment Center</label>
+      <select id="appointmentCenter" formControlName="appointmentCenter" class="form-control" aria-describedby="center-helper">
+        <option value="" disabled>Select a Center</option>
+        <option *ngFor="let center of centerList$ | async" [value]="center">{{ center }}</option>
+      </select>
+      <small id="center-helper" class="form-text text-muted">Select the city where the appointment will take place.</small>
+      <div *ngIf="appointmentForm.get('appointmentCenter')?.invalid && (appointmentForm.get('appointmentCenter')?.dirty || appointmentForm.get('appointmentCenter')?.touched)" class="alert alert-danger">
+        Appointment Center is required.
+      </div>
+    </div>
+
+    <!-- Appointment Date -->
+    <div class="form-group">
+      <label for="appointmentDate">Select Appointment Date</label>
+      <input type="date" id="appointmentDate" formControlName="appointmentDate" [min]="minDate" class="form-control" aria-describedby="date-helper">
+      <small id="date-helper" class="form-text text-muted">You cannot select a past date.</small>
+      <div *ngIf="appointmentForm.get('appointmentDate')?.invalid && (appointmentForm.get('appointmentDate')?.dirty || appointmentForm.get('appointmentDate')?.touched)" class="alert alert-danger">
+        A valid future date is required.
+      </div>
+    </div>
+
+    <!-- Appointment Time -->
+    <div class="form-group">
+      <label for="appointmentTime">Select Time (24-hour format)</label>
+      <input type="time" id="appointmentTime" formControlName="appointmentTime" class="form-control" aria-describedby="time-helper">
+      <small id="time-helper" class="form-text text-muted">Use the 24-hour clock (e.g., 14:30 for 2:30 PM).</small>
+      <div *ngIf="appointmentForm.get('appointmentTime')?.invalid && (appointmentForm.get('appointmentTime')?.dirty || appointmentForm.get('appointmentTime')?.touched)" class="alert alert-danger">
+        Appointment Time is required.
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="appointmentForm.invalid" title="Click to save the appointment details">Submit</button>
+  </form>
+
+  <!-- Display JSON Result -->
+  <div *ngIf="submittedJson" class="result-container" aria-live="polite">
+    <h3>Submitted Data:</h3>
+    <pre>{{ submittedJson }}</pre>
+  </div>
+</div>

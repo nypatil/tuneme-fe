@@ -1,1 +1,9 @@
-<p>my-health works!</p>
+<div class="health-container">
+  <div *ngFor="let item of healthItems" class="health-item">
+    <div class="icon-container">
+      <img [src]="item.icon" alt="" class="item-icon">
+    </div>
+    <div class="item-title">{{ item.title }}</div>
+    <span class="arrow">></span>
+  </div>
+</div>

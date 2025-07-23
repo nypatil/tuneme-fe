@@ -1,1 +1,32 @@
-<p>update-profile works!</p>
+<div class="update-profile-container">
+  <div class="header">
+    <h2>Update Profile</h2>
+  </div>
+  <div class="logo-container">
+    <img src="assets/logo.png" alt="tuneme logo" class="logo">
+    <p class="tagline">dream, love & live it</p>
+  </div>
+  <form [formGroup]="updateProfileForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="countryOffice">Choose Country Office</label>
+      <select id="countryOffice" formControlName="countryOffice">
+        <option value="India">India</option>
+        <option value="China">China</option>
+        <option value="US">US</option>
+        <option value="Botswana">Botswana</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="language">Choose Language</label>
+      <select id="language" formControlName="Current-User-Language">
+        <option value="en">en</option>
+        <option value="fr">fr</option>
+        <option value="gr">gr</option>
+      </select>
+    </div>
+    <button type="submit" [disabled]="!updateProfileForm.valid">Continue</button>
+  </form>
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+</div>

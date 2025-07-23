@@ -1,1 +1,127 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --primary-color: #FF6B81; /* Vibrant Coral Pink */
+  --secondary-color: #4ECDC4; /* Soft Teal */
+  --text-color-dark: #343a40;
+  --text-color-light: #6c757d;
+  --background-light: #f8f9fa;
+  --background-white: #ffffff;
+  --border-color: #ced4da;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px; /* Base font size */
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color-dark);
+  background-color: var(--background-light);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--text-color-dark);
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Global Button Styles */
+button {
+  display: inline-block;
+  padding: 12px 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 25px; /* More rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none; /* No default border */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Primary Button (for general use) */
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: darken(var(--primary-color), 10%); /* Placeholder for darker shade */
+}
+
+/* Secondary Button (for submit actions) */
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+}
+.btn-success:hover {
+  background-color: darken(var(--success-color), 10%); /* Placeholder for darker shade */
+}
+
+/* Global Form Element Styles */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px; /* Slightly more rounded inputs */
+  font-size: 1rem;
+  color: var(--text-color-dark);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgba(var(--primary-color), 0.25); /* Use primary color for focus glow */
+}
+
+textarea {
+  resize: vertical; /* Allow vertical resizing */
+}
+
+/* Checkbox/Radio button styling (basic) */
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 10px;
+  transform: scale(1.1);
+  accent-color: var(--primary-color); /* Color for checked state */
+}

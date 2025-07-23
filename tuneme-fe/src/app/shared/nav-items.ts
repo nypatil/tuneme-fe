@@ -10,6 +10,10 @@ import { DynamicContentComponent } from '../components/dynamic-content/dynamic-c
 import { UpdateProfileComponent } from '../pages/update-profile/update-profile.component';
 import { SettingsComponent } from '../pages/settings/settings.component';
 import { SecurityComponent } from '../pages/security/security.component';
+import { AppointmentReminderComponent } from '../pages/appointment-reminder/appointment-reminder.component';
+import { MedicineReminderComponent } from '../pages/medicine-reminder/medicine-reminder.component';
+import { UserRegistrationComponent } from '../pages/user-registration/user-registration.component';
+import { UserSurveyComponent } from '../pages/user-survey/user-survey.component';
 
 export interface NavItem {
   label: string;
@@ -22,11 +26,15 @@ export interface NavItem {
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', route: '/home', icon: 'fas fa-home', component: HomeComponent },
-  { label: 'My Knowledge', route: '/my-knowledge', icon: 'fas fa-book', roles: ['user', 'admin'], component: DynamicContentComponent },
+  { label: 'My Knowledge', route: '/my-knowledge', icon: 'fas fa-book', roles: ['user', 'admin'], component: MyKnowledgeComponent },
   { label: 'My Health', route: '/my-health', icon: 'fas fa-heartbeat', roles: ['user', 'admin'], component: MyHealthComponent },
   { label: 'Find A Service', route: '/find-a-service', icon: 'fas fa-search', roles: ['user', 'admin'], component: FindAServiceComponent },
   { label: 'Your Tips', route: '/your-tips', icon: 'fas fa-lightbulb', roles: ['user', 'admin'], component: YourTipsComponent },
   { label: 'My Favourites', route: '/my-favourites', icon: 'fas fa-star', roles: ['user', 'admin'], component: MyFavouritesComponent },
+  { label: 'Appointment Reminder', route: '/appointment-reminder', icon: 'fas fa-calendar-check', roles: ['user', 'admin'], component: AppointmentReminderComponent },
+  { label: 'Medicine Reminder', route: '/medicine-reminder', icon: 'fas fa-pills', roles: ['user', 'admin'], component: MedicineReminderComponent },
+  { label: 'User Registration', route: '/user-registration', icon: 'fas fa-user-plus', roles: ['user', 'admin'], component: UserRegistrationComponent },
+  { label: 'User Survey', route: '/user-survey', icon: 'fas fa-poll', roles: ['user', 'admin'], component: UserSurveyComponent },
   { label: 'Update Profile', route: '/update-profile', icon: 'fas fa-user-edit', roles: ['user', 'admin'], component: UpdateProfileComponent },
   { label: 'Settings', icon: 'fas fa-cog', roles: ['admin'], // Example: only admin can see settings
     children: [

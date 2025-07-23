@@ -1,0 +1,29 @@
+<div class="details-container" *ngIf="item">
+  <div class="header">
+    <button class="back-button" (click)="goBack()">←</button>
+    <h1 class="title">{{ item.name }}</h1>
+    <div class="actions">
+      <button class="action-button share-button">
+        <img src="assets/icon-share.svg" alt="Share">
+      </button>
+      <button class="action-button favorite-button">
+        <img src="assets/icon-heart.svg" alt="Favorite">
+      </button>
+    </div>
+  </div>
+
+  <img [src]="'https://mhsp-dev2.unfpa.org' + item.field_icon_image" alt="{{ item.name }}" class="main-image">
+
+  <div class="content-warning">
+    Content appropriate for readers 15 and older
+  </div>
+
+  <div class="sub-header">
+    How to break up
+  </div>
+
+  <div class="content" [innerHTML]="item.description__value_export">
+  </div>
+</div>
+
+

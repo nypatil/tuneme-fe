@@ -21,6 +21,8 @@ export class LeftNavMenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUserRole = this.authService.getUserRole();
+    // Filter out 'About' and 'Help' for the left-hand menu
+    this.menuItems = NAV_ITEMS.filter(item => item.label !== 'About' && item.label !== 'Help');
     // Initialize expanded state based on active route
     this.menuItems.forEach(item => {
       if (item.children) {

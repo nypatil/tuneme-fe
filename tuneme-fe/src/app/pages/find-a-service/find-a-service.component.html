@@ -1,1 +1,16 @@
-<p>find-a-service works!</p>
+<div class="service-container">
+  <div class="search-bar">
+    <input type="text" placeholder="Search services">
+    <button class="search-button">
+      <img src="assets/icon-search.png" alt="Search">
+    </button>
+  </div>
+  <div class="service-list">
+    <div *ngFor="let item of serviceItems" class="service-item">
+      <div class="icon-container">
+        <img src="assets/icon-service.png" alt="" class="item-icon">
+      </div>
+      <div class="item-title">{{ item.title }}</div>
+    </div>
+  </div>
+</div>

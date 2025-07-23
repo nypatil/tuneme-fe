@@ -1,1 +1,12 @@
-<p>your-tips works!</p>
+<div class="tips-container">
+  <div *ngFor="let item of tipItems" class="tip-item">
+    <div class="icon-container">
+      <img [src]="item.icon" alt="" class="item-icon">
+    </div>
+    <div class="item-text">
+      <div class="item-title">{{ item.title }}</div>
+      <div class="item-description">{{ item.description }}</div>
+    </div>
+    <span class="arrow">></span>
+  </div>
+</div>

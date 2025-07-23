@@ -3,7 +3,7 @@
     <img src="assets/logo.png" alt="Logo" class="logo">
   </div>
   <nav class="header-nav">
-    <ng-container *ngFor="let item of navItems">
+    <ng-container *ngFor="let item of topLevelNavItems">
       <a
         *ngIf="shouldShowMenuItem(item)"
         [routerLink]="item.route"
@@ -17,10 +17,10 @@
     <a routerLink="/home" class="download-btn">Download</a>
     <div class="user-profile">
       <span>Language</span>
-      <select class="country-dropdown">
-        <option value="english">English</option>
-        <option value="french">French</option>
-        <option value="german">German</option>
+      <select class="country-dropdown" [(ngModel)]="selectedLanguage" (change)="onLanguageChange($event)">
+        <option value="en">en</option>
+        <option value="fr">fr</option>
+        <option value="gr">gr</option>
       </select>
     </div>
   </div>

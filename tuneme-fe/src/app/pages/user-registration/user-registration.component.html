@@ -1,0 +1,71 @@
+<div class="container">
+  <h2>User Registration</h2>
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+
+    <!-- User Name -->
+    <fieldset class="form-section">
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input id="userName" type="text" formControlName="userName" class="form-control">
+      </div>
+    </fieldset>
+
+    <!-- Gender -->
+    <fieldset class="form-section">
+      <legend class="section-header">Select Gender</legend>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input id="male" type="radio" value="male" formControlName="gender">
+          <label for="male">Male</label>
+        </div>
+        <div class="radio-item">
+          <input id="female" type="radio" value="female" formControlName="gender">
+          <label for="female">Female</label>
+        </div>
+        <div class="radio-item">
+          <input id="other" type="radio" value="other" formControlName="gender">
+          <label for="other">Other/Self Described</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Date of Birth -->
+    <fieldset class="form-section">
+      <div class="form-group">
+        <label for="dob">Select your date of birth</label>
+        <input id="dob" type="date" formControlName="dateOfBirth" class="form-control">
+      </div>
+    </fieldset>
+
+    <!-- Interests -->
+    <fieldset class="form-section">
+      <legend class="section-header">What are you interested in?</legend>
+      <div class="checkbox-group" formArrayName="interests">
+        <div *ngFor="let interest of interests; let i = index" class="checkbox-item">
+          <input id="interest-{{ i }}" type="checkbox" [value]="interest.id" (change)="onInterestChange($event)">
+          <label for="interest-{{ i }}">{{ interest.label }}</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Education Level -->
+    <fieldset class="form-section">
+      <legend class="section-header">What level of formal education you have completed</legend>
+      <div class="radio-group">
+        <div *ngFor="let level of educationLevels; let i = index" class="radio-item">
+          <input id="edu-{{ i }}" type="radio" [value]="level" formControlName="educationLevel">
+          <label for="edu-{{ i }}">{{ level }}</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Action Button -->
+    <button type="submit" [disabled]="registrationForm.invalid" class="submit-btn">Done</button>
+  </form>
+
+  <!-- Display JSON Result -->
+  <div *ngIf="submittedJson" class="result-container" aria-live="polite">
+    <h3>Submitted Data:</h3>
+    <pre>{{ submittedJson }}</pre>
+  </div>
+</div>

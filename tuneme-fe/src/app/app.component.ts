@@ -25,7 +25,8 @@ import { LeftNavMenuComponent } from './components/left-nav-menu/left-nav-menu.c
   styles: [`
     .main-container {
       display: flex;
-      margin-top: 60px; /* Height of the header */
+      margin-top: 80px; /* Adjusted for fixed header clearance */
+      min-height: calc(100vh - 140px); /* Adjust based on header and footer height */
     }
 
     .content-area {
@@ -35,6 +36,10 @@ import { LeftNavMenuComponent } from './components/left-nav-menu/left-nav-menu.c
     }
 
     @media (max-width: 768px) {
+      .main-container {
+        margin-top: 0; /* Header will stack on mobile */
+        flex-direction: column; /* Stack nav and content */
+      }
       .content-area {
         margin-left: 0; /* No margin on mobile when sidebar is hidden */
       }
