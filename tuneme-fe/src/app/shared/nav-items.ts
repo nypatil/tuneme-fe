@@ -36,12 +36,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'User Registration', route: '/user-registration', icon: 'fas fa-user-plus', roles: ['user', 'admin'], component: UserRegistrationComponent },
   { label: 'User Survey', route: '/user-survey', icon: 'fas fa-poll', roles: ['user', 'admin'], component: UserSurveyComponent },
   { label: 'Update Profile', route: '/update-profile', icon: 'fas fa-user-edit', roles: ['user', 'admin'], component: UpdateProfileComponent },
-  { label: 'Settings', icon: 'fas fa-cog', roles: ['admin'], // Example: only admin can see settings
-    children: [
-      { label: 'Profile', route: '/settings/profile', icon: 'fas fa-id-card', component: UpdateProfileComponent }, // Re-using UpdateProfileComponent for simplicity
-      { label: 'Security', route: '/settings/security', icon: 'fas fa-shield-alt', component: SecurityComponent }
-    ]
-  },
   { label: 'About', route: '/about', icon: 'fas fa-info-circle', component: AboutComponent },
   { label: 'Help', route: '/help', icon: 'fas fa-question-circle', component: HomeComponent } // Placeholder for Help
 ];

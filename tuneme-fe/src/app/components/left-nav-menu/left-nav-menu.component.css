@@ -24,13 +24,11 @@
   padding: 12px 20px;
   color: #333;
   text-decoration: none;
-  font-size: 1.1em;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .left-nav-menu nav ul li a i {
   margin-right: 10px;
-  font-size: 1.2em;
 }
 
 .left-nav-menu nav ul li a:hover {
@@ -41,7 +39,6 @@
 .left-nav-menu nav ul li a.active-link {
   background-color: #007bff;
   color: white;
-  font-weight: bold;
 }
 
 .left-nav-menu nav ul li a.active-link i {
@@ -70,7 +67,6 @@
 
 .sub-menu li a {
   padding-left: 40px; /* Indent sub-menu items */
-  font-size: 1em;
 }
 
 .sub-menu li a.active-link {
@@ -89,7 +85,6 @@
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1.5em;
 }
 
 @media (max-width: 768px) {

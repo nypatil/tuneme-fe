@@ -2,7 +2,6 @@
   display: block;
   background-color: #f4f4f4;
   padding: 1rem;
-  font-family: Arial, sans-serif;
   color: #333;
 }
 
@@ -52,14 +51,10 @@
 
 .item-title {
   flex-grow: 1;
-  font-size: 1.1rem;
-  font-weight: 500;
 }
 
 .arrow {
   color: #ccc;
-  font-size: 1.5rem;
-  font-weight: bold;
 }
 
 @media (min-width: 768px) {

@@ -2,7 +2,6 @@
   display: block;
   background-color: #f4f4f4; /* Light grey background */
   padding: 1rem;
-  font-family: Arial, sans-serif;
   color: #333; /* Darker text */
 }
 
@@ -27,7 +26,6 @@
   border: none;
   padding: 0.8rem 1.2rem;
   color: #333;
-  font-size: 1rem;
 }
 
 .search-bar input::placeholder {
@@ -95,8 +93,6 @@
 
 .item-title {
   flex-grow: 1;
-  font-size: 1.1rem;
-  font-weight: 500;
   color: #333;
 }
 

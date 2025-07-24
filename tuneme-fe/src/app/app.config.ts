@@ -16,15 +16,18 @@ import { UserSurveyComponent } from './pages/user-survey/user-survey.component';
 function createRoutes(items: NavItem[], parentPath: string = ''): Routes {
   let routes: Routes = [];
   items.forEach(item => {
-    const fullPath = parentPath + item.route?.substring(1) || ''; // Remove leading slash if present
+    const fullPath = item.route ? item.route.substring(1) : ''; // Remove leading slash
     if (item.component) {
       routes.push({
         path: fullPath,
-        component: item.component
+        component: item.component,
+        title: item.label // Add title here
       });
     }
     if (item.children) {
-      routes = routes.concat(createRoutes(item.children, fullPath + '/'));
+      // Pass the parent path to children
+      const parentRoute = item.route ? item.route : '';
+      routes = routes.concat(createRoutes(item.children, parentRoute));
     }
   });
   return routes;

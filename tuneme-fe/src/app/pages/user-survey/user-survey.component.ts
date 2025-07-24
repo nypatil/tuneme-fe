@@ -31,9 +31,6 @@ export class UserSurveyComponent {
   generateButtons() {
     this.buttons.push({ caption: 'Your Opinion About Tune Me' });
     this.buttons.push({ caption: 'Health Assessment Survey' });
-    for (let i = 1; i <= 4; i++) { // Changed to 4 to make a total of 6 buttons
-      this.buttons.push({ caption: `Sample Button ${i}` });
-    }
   }
 
   onButtonClick(caption: string) {

@@ -18,13 +18,11 @@ h2 {
 .form-control {
   width: 100%;
   padding: 0.5rem;
-  font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .form-text {
-  font-size: 0.875rem;
   color: #6c757d;
   margin-top: 0.25rem;
 }
@@ -37,13 +35,11 @@ h2 {
   margin-top: 0.5rem;
   border: 1px solid transparent;
   border-radius: 4px;
-  font-size: 0.9rem;
 }
 
 button {
   width: 100%;
   padding: 0.75rem;
-  font-size: 1.1rem;
   font-weight: bold;
   color: #fff;
   background-color: #ed8b00;
