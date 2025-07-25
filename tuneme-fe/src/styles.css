@@ -147,3 +147,24 @@ input[type="radio"] {
 label, .caption {
   font-size: 14px;
 }
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  html {
+    font-size: 15px; /* Slightly reduce base font size */
+  }
+
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 18px; }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px; /* Further reduce for very small screens */
+  }
+
+  h1 { font-size: 22px; }
+  h2 { font-size: 18px; }
+  h3 { font-size: 16px; }
+}

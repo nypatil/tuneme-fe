@@ -1,0 +1,14 @@
+<div class="my-appointments-container">
+  <hr class="separator">
+  <h2 class="section-header">My Appointments</h2>
+  <div class="appointments-grid">
+    <div *ngFor="let appointment of appointments" class="appointment-card">
+      <p><strong>Appointment:</strong> {{ appointment.name }}</p>
+      <p><strong>Date:</strong> {{ appointment.date }}</p>
+      <p><strong>Time:</strong> {{ appointment.time }}</p>
+      <p><strong>Center:</strong> {{ appointment.center }}</p>
+      <button class="delete-btn" (click)="deleteAppointment(appointment.id)">Delete</button>
+    </div>
+  </div>
+  <button class="add-btn" (click)="addAppointment()">Add Appointment</button>
+</div>

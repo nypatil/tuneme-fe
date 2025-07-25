@@ -24,6 +24,48 @@
 
   <div class="content" [innerHTML]="item.description__value_export">
   </div>
+
+  <div class="comment-section">
+    <h3>Leave a Comment</h3>
+    <form [formGroup]="commentForm">
+      <textarea formControlName="comment" placeholder="Write your comment here..."></textarea>
+      <div *ngIf="commentForm.controls['comment'].invalid && (commentForm.controls['comment'].dirty || commentForm.controls['comment'].touched)" class="validation-error">
+        <div *ngIf="commentForm.controls['comment'].errors?.['required']">
+          Comment is required.
+        </div>
+        <div *ngIf="commentForm.controls['comment'].errors?.['minlength']">
+          Comment must be at least 10 characters long.
+        </div>
+        <div *ngIf="commentForm.controls['comment'].errors?.['maxlength']">
+          Comment cannot exceed 200 characters.
+        </div>
+      </div>
+      <div class="comment-buttons">
+        <button type="submit" (click)="submitComment(false)" [disabled]="commentForm.invalid">Comment as User</button>
+        <button type="submit" (click)="submitComment(true)" [disabled]="commentForm.invalid">Comment Anonymously</button>
+      </div>
+    </form>
+
+    <div *ngIf="commentSubmitted" class="submission-message">
+      Your comment has been received and is waiting approval from the site admin.
+    </div>
+
+    <hr class="separator-line">
+
+    <div class="previous-comments-section">
+      <h3>Previous Comments</h3>
+      <div *ngFor="let comment of previousComments" class="comment-item">
+        <div class="comment-header">
+          <span class="comment-username">{{ comment.userName }}</span>
+          <span class="comment-datetime">{{ comment.dateTime | date:'medium' }}</span>
+        </div>
+        <p class="comment-text">{{ comment.commentText }}</p>
+      </div>
+      <div *ngIf="previousComments.length === 0" class="no-comments-message">
+        No comments yet. Be the first to comment!
+      </div>
+    </div>
+  </div>
 </div>
 
 

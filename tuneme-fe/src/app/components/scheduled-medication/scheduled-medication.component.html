@@ -1,0 +1,21 @@
+<div class="scheduled-medication-section">
+  <h2>Scheduled Medication</h2>
+  <hr class="section-separator">
+
+  <div class="medication-grid">
+    <div class="medication-card" *ngFor="let record of medicationRecords">
+      <div class="card-content">
+        <p><strong>Medication:</strong> {{ record.medication }}</p>
+        <p><strong>Power:</strong> {{ record.power }}</p>
+        <p><strong>Dose:</strong> {{ record.dose }}</p>
+        <p><strong>Time:</strong> {{ record.time }}</p>
+        <p><strong>Instructions:</strong> {{ record.instructions }}</p>
+      </div>
+      <button class="delete-button" (click)="deleteRecord(record.id)">Delete</button>
+    </div>
+  </div>
+
+  <div class="add-button-container">
+    <button class="add-new-record-button" (click)="addNewRecord()">Add New Medication</button>
+  </div>
+</div>

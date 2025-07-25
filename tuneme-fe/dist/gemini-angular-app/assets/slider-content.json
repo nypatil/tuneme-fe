@@ -1,0 +1,52 @@
+[
+  {
+    "image": "assets/logo.png",
+    "text1": "Welcome to Tune Me",
+    "text2": "Your personalized health companion."
+  },
+  {
+    "image": "assets/app-icon.png",
+    "text1": "Stay Healthy",
+    "text2": "Discover tips for a better lifestyle."
+  },
+  {
+    "image": "assets/icon-knowledge.png",
+    "text1": "Expand Your Knowledge",
+    "text2": "Access a wealth of health information."
+  },
+  {
+    "image": "assets/icon-diet.png",
+    "text1": "Healthy Eating",
+    "text2": "Learn about balanced diets and nutrition."
+  },
+  {
+    "image": "assets/icon-exercise.png",
+    "text1": "Fitness Routines",
+    "text2": "Find exercises that fit your lifestyle."
+  },
+  {
+    "image": "assets/icon-mental.png",
+    "text1": "Mental Well-being",
+    "text2": "Tips for stress reduction and mindfulness."
+  },
+  {
+    "image": "assets/icon-pharmacy.png",
+    "text1": "Medication Reminders",
+    "text2": "Manage your prescriptions easily."
+  },
+  {
+    "image": "assets/icon-research.png",
+    "text1": "Health Research",
+    "text2": "Stay informed with the latest studies."
+  },
+  {
+    "image": "assets/icon-support.png",
+    "text1": "Community Support",
+    "text2": "Connect with others on their health journey."
+  },
+  {
+    "image": "assets/icon-tips.png",
+    "text1": "Daily Health Tips",
+    "text2": "Receive actionable advice every day."
+  }
+]

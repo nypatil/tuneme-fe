@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ElementRef, ViewChild, AfterViewInit, Renderer2 } from '@angular/core';
 import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { filter, map } from 'rxjs/operators';
@@ -13,8 +13,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [HeaderComponent, FooterComponent, DownloadSectionComponent, LeftNavMenuComponent, RouterOutlet, CommonModule],
   template: `
-    <app-header></app-header>
-    <div class="main-container">
+    <app-header #appHeader></app-header>
+    <div class="main-container" #mainContainer>
       <app-left-nav-menu></app-left-nav-menu>
       <div class="content-area">
         <router-outlet></router-outlet>
@@ -28,8 +28,8 @@ import { CommonModule } from '@angular/common';
   styles: [`
     .main-container {
       display: flex;
-      margin-top: 80px;
       min-height: calc(100vh - 140px);
+      transition: margin-top 0.3s ease; /* Add transition for smooth adjustment */
     }
     .content-area {
       margin-left: 220px;
@@ -51,22 +51,30 @@ import { CommonModule } from '@angular/common';
     .back-to-top:hover {
       background-color: #d47c00;
     }
-    @media (max-width: 768px) {
-      .main-container {
-        margin-top: 0;
-        flex-direction: column;
-      }
+    @media (max-width: 992px) {
       .content-area {
         margin-left: 0;
       }
     }
+    @media (max-width: 768px) {
+      .main-container {
+        flex-direction: column;
+      }
+    }
   `]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('appHeader', { read: ElementRef }) headerRef!: ElementRef;
+  @ViewChild('mainContainer', { read: ElementRef }) containerRef!: ElementRef;
+
   title = 'gemini-angular-app';
   showBackToTop = false;
 
-  constructor(private router: Router, private titleService: Title) {}
+  constructor(
+    private router: Router,
+    private titleService: Title,
+    private renderer: Renderer2
+  ) {}
 
   ngOnInit() {
     this.router.events.pipe(
@@ -83,9 +91,25 @@ export class AppComponent implements OnInit {
     });
   }
 
+  ngAfterViewInit() {
+    this.adjustContentMargin();
+  }
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.adjustContentMargin();
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.showBackToTop = window.pageYOffset > 100;
+  }
+
+  adjustContentMargin() {
+    if (this.headerRef && this.containerRef) {
+      const headerHeight = this.headerRef.nativeElement.offsetHeight;
+      this.renderer.setStyle(this.containerRef.nativeElement, 'marginTop', `${headerHeight}px`);
+    }
   }
 
   scrollToTop() {

@@ -1,0 +1,73 @@
+
+[
+  {
+    "id": 1,
+    "icon": "assets/icon-knowledge.png",
+    "title": "Understanding Your Health Records",
+    "description": "Learn how to access and interpret your personal health information, including lab results and medical history.",
+    "link": "/my-knowledge/health-records"
+  },
+  {
+    "id": 2,
+    "icon": "assets/icon-service.png",
+    "title": "Finding Local Medical Services",
+    "description": "Discover nearby clinics, hospitals, and specialists. Filter by service type, location, and availability.",
+    "link": "/find-a-service/medical"
+  },
+  {
+    "id": 3,
+    "icon": "assets/icon-tips.png",
+    "title": "Daily Wellness Tips for a Better Life",
+    "description": "Get practical advice on nutrition, exercise, mental well-being, and healthy habits to improve your daily life.",
+    "link": "/your-tips/wellness"
+  },
+  {
+    "id": 4,
+    "icon": "assets/icon-favourites.png",
+    "title": "Managing Your Favorite Health Resources",
+    "description": "Save and organize your preferred articles, doctors, and health programs for quick access.",
+    "link": "/my-favourites/resources"
+  },
+  {
+    "id": 5,
+    "icon": "assets/icon-research.png",
+    "title": "Latest Research in Preventative Care",
+    "description": "Stay informed about breakthroughs in preventative medicine and how they can impact your health.",
+    "link": "/my-knowledge/research"
+  },
+  {
+    "id": 6,
+    "icon": "assets/icon-support.png",
+    "title": "Support Groups for Chronic Conditions",
+    "description": "Connect with communities and find support groups tailored for various chronic health conditions.",
+    "link": "/find-a-service/support-groups"
+  },
+  {
+    "id": 7,
+    "icon": "assets/icon-diet.png",
+    "title": "Personalized Diet Plans and Nutrition Advice",
+    "description": "Access customized diet plans and expert nutritional guidance to meet your health goals.",
+    "link": "/my-health/diet-plans"
+  },
+  {
+    "id": 8,
+    "icon": "assets/icon-exercise.png",
+    "title": "Effective Home Exercise Routines",
+    "description": "Explore easy-to-follow exercise routines you can do at home without special equipment.",
+    "link": "/your-tips/exercise"
+  },
+  {
+    "id": 9,
+    "icon": "assets/icon-mental.png",
+    "title": "Mental Health Awareness and Resources",
+    "description": "Find articles and resources to improve mental well-being and address common mental health concerns.",
+    "link": "/my-knowledge/mental-health"
+  },
+  {
+    "id": 10,
+    "icon": "assets/icon-pharmacy.png",
+    "title": "Locating 24/7 Pharmacies Near You",
+    "description": "Quickly find pharmacies open round the clock for urgent medication needs.",
+    "link": "/find-a-service/pharmacies"
+  }
+]
